@@ -2,13 +2,13 @@
 from time import sleep
 
 import rospy
-from location_monitor.msg import StickControl
+from imibot.msg import StickControl
 
 
 def main():
     rospy.init_node('imibot_move_sender')
 
-    pub = rospy.Publisher('location_monitor/stick_control', StickControl, queue_size=10)
+    pub = rospy.Publisher('imibot/stick_control', StickControl, queue_size=10)
 
     ld = StickControl()
     for i in range(0, 360):
