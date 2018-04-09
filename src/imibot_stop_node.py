@@ -11,11 +11,6 @@ def main():
     pub = rospy.Publisher('imibot/stick_control', StickControl, queue_size=10)
 
     ld = StickControl()
-    for i in range(0, 360):
-        ld.strength = 50
-        ld.angle = i
-        pub.publish(ld)
-        sleep(0.05)
     ld.strength = 0
     ld.angle = 0
     pub.publish(ld)
@@ -24,3 +19,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
