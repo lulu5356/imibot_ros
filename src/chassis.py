@@ -5,8 +5,11 @@ import Adafruit_PCA9685
 class Chassis:
 
     def __init__(self):
-        self.pwm = Adafruit_PCA9685.PCA9685()
-        self.pwm.set_pwm_freq(60)
+        try:
+            self.pwm = Adafruit_PCA9685.PCA9685()
+            self.pwm.set_pwm_freq(60)
+        except Exception:
+            print('Pas de carte brancher en I2C')
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(26, GPIO.OUT)
         GPIO.setup(19, GPIO.OUT)
@@ -57,11 +60,20 @@ class Chassis:
         # time.sleep(tf)
 
     def setLeftSpeed(self, freq):
-        self.pwm.set_pwm(0, 0, freq)
+        try:
+            self.pwm.set_pwm(0, 0, freq)
+        except Exception:
+            print('Pas de carte brancher en I2C')
 
     def setRightSpeed(self, freq):
-        self.pwm.set_pwm(1, 0, freq)
+        try:
+            self.pwm.set_pwm(1, 0, freq)
+        except Exception:
+            print('Pas de carte brancher en I2C')
 
     def setTotalSpeed(self, freq):
-        self.pwm.set_pwm(0, 0, freq)
-        self.pwm.set_pwm(1, 0, freq)
+        try:
+            self.pwm.set_pwm(0, 0, freq)
+            self.pwm.set_pwm(1, 0, freq)
+        except Exception:
+            print('Pas de carte brancher en I2C')
