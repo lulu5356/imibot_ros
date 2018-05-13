@@ -1,0 +1,3 @@
+<launch>
+   <node name="imibot_move" pkg="imibot" type="imibot_move_node.py"/>
+</launch>
