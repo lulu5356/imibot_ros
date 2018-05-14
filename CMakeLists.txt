@@ -104,7 +104,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES imibot
-  CATKIN_DEPENDS rospy std_msgs std_msgs message_runtime
+  CATKIN_DEPENDS rospy std_msgs std_msgs 
 #  DEPENDS system_lib
 )
 
